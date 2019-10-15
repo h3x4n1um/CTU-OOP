@@ -58,7 +58,9 @@ public class SinhVien {
 	}
 	
 	public String toString(){
-		return "\nMssv: "+mssv+"\nHo ten: "+hoTen+"\nNgay sinh: "+ngaySinh;
+		return "\nMssv: "+mssv+
+			   "\nHo ten: "+hoTen+
+			   "\nNgay sinh: "+ngaySinh;
 	}
 	
 	public float diemTB(){
@@ -82,6 +84,9 @@ public class SinhVien {
 				break;
 			case "D+":
 				res += 1.5;
+				break;
+			case "D":
+				res += 1.0;
 				break;
 			default:
 			}

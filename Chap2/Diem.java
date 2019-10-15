@@ -15,6 +15,7 @@ public class Diem {
 	
 	public void nhapDiem(){
 		java.util.Scanner io = new java.util.Scanner(System.in);
+		System.out.print("Nhap Diem: ");
 		x = io.nextInt();
 		y = io.nextInt();
 	}
