@@ -1,9 +1,10 @@
 package Chap3;
 
+import java.io.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class SinhVien {
+public class SinhVien implements Serializable{
 	private String mssv;
 	private String hoTen;
 	private Date ngaySinh;
@@ -11,7 +12,7 @@ public class SinhVien {
 	private String[] hocPhan;
 	private String[] diem;
 	
-	public SinhVien() {
+	public SinhVien(){
 		mssv = new String();
 		hoTen = new String();
 		ngaySinh = new Date();
@@ -23,8 +24,21 @@ public class SinhVien {
 			diem[i] = new String();
 		}
 	}
+	
+	public void makeCopy(SinhVien sv){
+		mssv = sv.mssv;
+		hoTen = sv.hoTen;
+		ngaySinh = sv.ngaySinh;
+		soLuongHocPhan = sv.soLuongHocPhan;
+		hocPhan = new String[105];
+		diem = new String[105];
+		for (int i = 0; i < soLuongHocPhan; ++i){
+			hocPhan[i] = sv.hocPhan[i];
+			diem[i] = sv.diem[i];
+		}
+	}
 
-	public void nhapThongTinCoBan() throws Exception {
+	public void nhapThongTinCoBan(){
 		java.util.Scanner io = new java.util.Scanner(System.in);
 		System.out.print("mssv: ");
 		mssv = io.nextLine();
@@ -32,7 +46,10 @@ public class SinhVien {
 		hoTen = io.nextLine();
 		System.out.print("ngaySinh (dd/MM/yyyy): ");
 		String sDate = io.nextLine();
-		ngaySinh = new SimpleDateFormat("dd/MM/yyyy").parse(sDate);
+		try{
+			ngaySinh = new SimpleDateFormat("dd/MM/yyyy").parse(sDate);
+		}
+		catch(Exception e){}
 		/*System.out.print("soLuongHocPhan: ");
 		soLuongHocPhan = io.nextInt();
 		io.nextLine();
@@ -96,5 +113,16 @@ public class SinhVien {
 	
 	public String getMssv(){
 		return mssv;
+	}
+	
+	public void writeToFile(FileOutputStream output) throws IOException{
+		ObjectOutputStream objectOutput = new ObjectOutputStream(output);
+		objectOutput.writeObject(this);
+		objectOutput.flush();
+	}
+	
+	public void readFromFile(FileInputStream input) throws IOException, ClassNotFoundException{
+		ObjectInputStream objectInput = new ObjectInputStream(input);
+		makeCopy((SinhVien) objectInput.readObject());
 	}
 }

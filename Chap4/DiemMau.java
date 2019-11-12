@@ -2,7 +2,7 @@ package Chap4;
 
 import Chap2.Diem;
 
-public class DiemMau extends Diem{
+public class DiemMau extends Diem {
 	private String mau;
 	
 	public DiemMau() {

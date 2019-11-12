@@ -2,7 +2,7 @@ package Chap4;
 
 import Chap3.SinhVien;
 
-public class SinhVienCNTT extends SinhVien{
+public class SinhVienCNTT extends SinhVien {
 	private String taikhoan;
 	private String matkhau;
 	private String email;
@@ -14,7 +14,7 @@ public class SinhVienCNTT extends SinhVien{
 		email = new String();
 	}
 	
-	public void nhapThongTinCoBan() throws Exception{
+	public void nhapThongTinCoBan() {
 		super.nhapThongTinCoBan();
 		java.util.Scanner io = new java.util.Scanner(System.in);
 		System.out.print("taikhoan: ");

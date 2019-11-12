@@ -1,7 +1,7 @@
 package Chap3;
 
 public class SDSinhVien {
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args){
 		SinhVien svNam = new SinhVien();
 		svNam.nhapThongTinCoBan();
 		svNam.dkHocPhan();

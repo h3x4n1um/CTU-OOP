@@ -1,7 +1,7 @@
 package Chap4;
 
 public class SDSVCNTT {
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) {
 		java.util.Scanner io = new java.util.Scanner(System.in);
 		System.out.print("Nhap n: ");
 		int n = io.nextInt();
